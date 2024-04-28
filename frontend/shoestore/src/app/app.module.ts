@@ -5,12 +5,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { OrderComponent } from './components/order/order.component';
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
-import { OrderConfimComponent } from './components/order-confim/order-confim.component';
+import { OrderDetailComponent } from './components/order-confim/order.detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { AppComponent } from './app/app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,25 +21,33 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     FooterComponent,
     OrderComponent,
     DetailProductComponent,
-    OrderConfimComponent,
+    OrderDetailComponent,
     LoginComponent,
     RegisterComponent,
+    AppComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    ReactiveFormsModule, 
+    AppRoutingModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-    }
+    },
   ],
   bootstrap: [
     // HomeComponent
     // DetailProductComponent
-    // OrderComponent
-    OrderConfimComponent
+    // OrderComponent,
+    // OrderDetailComponent
     // LoginComponent,
     // RegisterComponent
+    AppComponent,
   ],
 })
 export class AppModule {}

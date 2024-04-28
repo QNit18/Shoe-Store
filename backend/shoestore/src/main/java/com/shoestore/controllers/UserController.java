@@ -55,7 +55,7 @@ public class UserController {
             ) {
         // Check User Login and return token
         try {
-            String token  = userService.login(userLoginDTO.getPhoneNumber(), userLoginDTO.getPassword());
+            String token  = userService.login(userLoginDTO.getPhoneNumber(), userLoginDTO.getPassword(), userLoginDTO.getRoleId() == null ? 1 : userLoginDTO.getRoleId());
             // Return token
             // Convert to JSON format
             return ResponseEntity.ok(LoginResponse.builder()
