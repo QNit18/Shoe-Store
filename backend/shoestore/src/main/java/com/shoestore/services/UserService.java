@@ -6,5 +6,5 @@ import com.shoestore.models.User;
 
 public interface UserService {
     User createUser(UserDTO userDTO) throws Exception;
-    String login(String phoneNumber, String password) throws DataNotFoundException;
+    String login(String phoneNumber, String password, Long roleId) throws DataNotFoundException;
 }

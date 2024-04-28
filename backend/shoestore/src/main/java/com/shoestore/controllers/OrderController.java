@@ -4,7 +4,9 @@ import com.shoestore.components.LocalizationUtils;
 import com.shoestore.dtos.OrderDTO;
 import com.shoestore.exceptions.DataNotFoundException;
 import com.shoestore.models.Order;
+import com.shoestore.response.OrderResponse;
 import com.shoestore.services.Implement.OrderServiceImpl;
+import com.shoestore.services.OrderService;
 import com.shoestore.utils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +20,7 @@ import java.util.List;
 @RequestMapping("${api.prefix}/orders")
 @RequiredArgsConstructor
 public class OrderController {
-    private final OrderServiceImpl orderService;
+    private final OrderService orderService;
     private final LocalizationUtils localizationUtils;
 
     @PostMapping("")
@@ -53,8 +55,9 @@ public class OrderController {
     @GetMapping("/{orderId}") // Get orders by Id
     public ResponseEntity<?> getOrdersById(@Valid @PathVariable Long orderId) {
         try {
-            Order order = orderService.getOrder(orderId);
-            return ResponseEntity.ok(order);
+            Order existingOrder = orderService.getOrder(orderId);
+            OrderResponse orderResponse = OrderResponse.fromOrder(existingOrder);
+            return ResponseEntity.ok(orderResponse);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
