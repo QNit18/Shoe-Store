@@ -13,6 +13,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -25,13 +28,15 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     RegisterComponent,
     AppComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule, 
     FormsModule, 
     HttpClientModule, 
     ReactiveFormsModule, 
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [
     {

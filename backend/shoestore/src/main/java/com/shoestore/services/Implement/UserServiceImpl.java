@@ -2,6 +2,7 @@ package com.shoestore.services.Implement;
 
 import com.shoestore.components.JwtTokenUtils;
 import com.shoestore.dtos.UserDTO;
+import com.shoestore.dtos.UserUpdateDTO;
 import com.shoestore.exceptions.DataNotFoundException;
 import com.shoestore.exceptions.PermissionDenyException;
 import com.shoestore.models.Role;
@@ -81,6 +82,13 @@ public class UserServiceImpl implements UserService {
                 throw new BadCredentialsException("Wrong phone number / password");
             }
         }
+        Optional<Role> optionalRole = roleRepository.findById(roleId);
+        if (optionalRole.isEmpty() || !roleId.equals(existingUser.getRole().getId())){
+            throw new DataNotFoundException("You must have a role");
+        }
+        if (!user.get().isActive()){
+            throw new DataNotFoundException("User was denied by Admin");
+        }
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 phoneNumber, password,
                 existingUser.getAuthorities()
@@ -88,5 +96,66 @@ public class UserServiceImpl implements UserService {
         // authenticate with Java spring security
         authenticationManager.authenticate(authenticationToken);
         return jwtTokenUtil.generateToken(existingUser);
+    }
+
+    @Override
+    public User getUserDetailsFromToken(String token) throws Exception {
+        if(jwtTokenUtil.isTokenExpired(token)){
+            throw new Exception("Token is expired");
+        }
+        String phoneNumber = jwtTokenUtil.extractPhoneNumber(token);
+        Optional<User> user = userRepository.findByPhoneNumber(phoneNumber);
+        if (user.isPresent()){
+            return user.get();
+        }
+        throw new Exception("User not found");
+    }
+
+    @Override
+    @Transactional
+    public User updateUser(UserUpdateDTO userDTO, Long userId) throws Exception {
+        // Find User
+        User existingUser = userRepository.findById(userId)
+                .orElseThrow(() -> new DataNotFoundException("User not found"));
+
+        String phoneNumber = userDTO.getPhoneNumber();
+        // Checking phone number has exists ?
+        if(!existingUser.getPhoneNumber().equals(phoneNumber)
+            && userRepository.existsByPhoneNumber(phoneNumber)) {
+            throw new DataIntegrityViolationException("Phone number already exists");
+        }
+
+        //convert from userDTO => user
+        if (userDTO.getFullName() != null){
+            existingUser.setFullName(userDTO.getFullName());
+        }
+
+        if (userDTO.getPhoneNumber() != null){
+            existingUser.setPhoneNumber(userDTO.getPhoneNumber());
+        }
+
+        if (userDTO.getAddress() != null){
+            existingUser.setAddress(userDTO.getAddress());
+        }
+
+        if (userDTO.getDateOfBirth() != null){
+            existingUser.setDateOfBirth(userDTO.getDateOfBirth());
+        }
+
+        if (userDTO.getFacebookAccountId() > 0){
+            existingUser.setFacebookAccountId(userDTO.getFacebookAccountId());
+        }
+
+        if (userDTO.getGoogleAccountId() > 0){
+            existingUser.setGoogleAccountId(userDTO.getGoogleAccountId());
+        }
+
+        if(userDTO.getPassword() != null && !userDTO.getPassword().isEmpty()){
+            String newPassword = userDTO.getPassword();
+            String encodedPassword = passwordEncoder.encode(newPassword);
+            existingUser.setPassword(encodedPassword);
+        }
+
+        return userRepository.save(existingUser);
     }
 }

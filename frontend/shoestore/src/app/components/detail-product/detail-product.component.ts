@@ -20,14 +20,15 @@ export class DetailProductComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService // private router: Router,
-  ) // private activetedRoute : ActivatedRoute,
-  {}
+    private cartService: CartService,
+    private router: Router,
+    private activetedRoute: ActivatedRoute //
+  ) {}
 
   ngOnInit() {
     debugger;
     //this.cartService.clearCart();
-    const idParam = 1; // Fake temporarily value
+    const idParam = this.activetedRoute.snapshot.paramMap.get('id'); // Fake temporarily value
     if (idParam !== null) {
       this.productId = +idParam;
     }
@@ -116,5 +117,7 @@ export class DetailProductComponent implements OnInit {
     }
   }
 
-  byNow(){}
+  byNow() {
+    this.router.navigate(['/orders']);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { OrderDTO } from 'src/app/dtos/order/order.dto';
 import { environment } from 'src/app/environments/environment';
 import { Product } from 'src/app/models/product';
@@ -35,7 +36,8 @@ export class OrderComponent {
     private cartService: CartService,
     private productService: ProductService,
     private orderService: OrderService,
-    private fb: FormBuilder //
+    private fb: FormBuilder ,
+    private router : Router
   ) {
     this.orderForm = this.fb.group({
       fullname: ['', Validators.required],
@@ -50,10 +52,16 @@ export class OrderComponent {
 
   ngOnInit(): void {
     debugger;
+
+    // this.cartService.clearCart();
+
     // Retrieve list products from cart
     const cart = this.cartService.getCart();
     const productIds = Array.from(cart.keys());
 
+    if (productIds.length === 0 ){
+      return;
+    }
     // Call service to get information for products based on the list of IDs
     debugger;
     this.productService.getProductsByIds(productIds).subscribe({
@@ -101,17 +109,22 @@ export class OrderComponent {
         quantity : cartItem.quantity
       }));
 
+      this.orderData.total_money = this.totalAmount;
+
+      // Data valid
       this.orderService.placeOrder(this.orderData).subscribe({
         next: (response) => {
           debugger;
-          console.log('Create order success');
+          alert('Đặt hàng thành công');
+          this.cartService.clearCart();
+          this.router.navigate(['/']);
         },
         complete: () => {
           debugger;
         },
         error: (error: any) => {
           debugger
-          console.error('Have error: ', error);
+          alert(`Have error: ${error}`);
         },
       });
     } else {
