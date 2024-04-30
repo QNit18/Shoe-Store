@@ -36,7 +36,8 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "password", length = 200, nullable = false)
     private String password;
 
-    private boolean is_active;
+    @Column(name = "is_active")
+    private boolean isActive;
 
     @Column(name = "date_of_birth")
     private Date dateOfBirth;

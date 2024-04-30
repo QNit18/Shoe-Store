@@ -33,7 +33,10 @@ public class JwtTokenUtils {
     public String generateToken(User user){
         // properties => claims
         Map<String, Object> claims = new HashMap<>();
+
+
         claims.put("phoneNumber", user.getPhoneNumber());
+        claims.put("userId",user.getId());
 //        String secrkey = this.generateSecretKey(); Using when generate new Key
         try {
             String token = Jwts.builder()
