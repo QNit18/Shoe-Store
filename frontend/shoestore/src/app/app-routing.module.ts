@@ -6,8 +6,11 @@ import { DetailProductComponent } from "./components/detail-product/detail-produ
 import { OrderComponent } from "./components/order/order.component";
 import { OrderDetailComponent } from "./components/order-confim/order.detail.component";
 import { NgModule } from "@angular/core";
-import { AuthGuardFn } from "./app/guards/auth.guard";
+import { AuthGuardFn } from "./guards/auth.guard";
 import { UserProfileComponent } from "./components/user-profile/user-profile.component";
+import { AdminComponent } from "./components/admin/admin.component";
+import { AdminGuardFn } from "./guards/admin.guard";
+import { OrderAdminComponent } from "./components/admin/order/order.admin.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,6 +20,7 @@ const routes: Routes = [
   { path: 'orders', component: OrderComponent, canActivate: [AuthGuardFn] },
   { path: 'user-profile', component: UserProfileComponent, canActivate: [AuthGuardFn] },
   { path: 'orders/:id', component: OrderDetailComponent },
+  { path: 'admin', component:AdminComponent, canActivate:[AdminGuardFn]},
 ];
 
 @NgModule({

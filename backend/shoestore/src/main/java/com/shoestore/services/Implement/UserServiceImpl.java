@@ -77,7 +77,8 @@ public class UserServiceImpl implements UserService {
         }
         User existingUser = user.get();
         // Check password
-        if (existingUser.getFacebookAccountId() == 0 && existingUser.getGoogleAccountId() == 0) {
+        if (existingUser.getFacebookAccountId() == 0
+                && existingUser.getGoogleAccountId() == 0) {
             if (!passwordEncoder.matches(password, existingUser.getPassword())){
                 throw new BadCredentialsException("Wrong phone number / password");
             }
