@@ -15,8 +15,8 @@ import { TokenService } from 'src/app/services/token.service';
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   keyword: string = '';
-  currentPage: number = 1;
-  itemsPerPage: number = 12;
+  currentPage: number = 0;
+  itemsPerPage: number = 10;
   pages: number[] = [];
   totalPages: number = 0;
   visiblePages: number[] = [];

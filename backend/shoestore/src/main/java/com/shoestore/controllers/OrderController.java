@@ -4,13 +4,20 @@ import com.shoestore.components.LocalizationUtils;
 import com.shoestore.dtos.OrderDTO;
 import com.shoestore.exceptions.DataNotFoundException;
 import com.shoestore.models.Order;
+import com.shoestore.response.OrderListResponse;
 import com.shoestore.response.OrderResponse;
-import com.shoestore.services.Implement.OrderServiceImpl;
+import com.shoestore.response.ProductListResponse;
+import com.shoestore.response.ProductResponse;
 import com.shoestore.services.OrderService;
 import com.shoestore.utils.MessageKeys;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -79,5 +86,30 @@ public class OrderController {
         //Soft delete => set active is FALSE;
         orderService.deleteOrder(id);
         return ResponseEntity.ok(localizationUtils.getLocalizedMessaged(MessageKeys.DELETE_ORDER_SUCCESSFULLY, id));
+    }
+
+    @GetMapping("/get-orders-by-keyword")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public ResponseEntity<OrderListResponse> getOrderByKeyword(
+            @RequestParam(defaultValue = "", required = false) String keyword,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int limit
+    ){
+        PageRequest pageRequest = PageRequest.of(
+                page, limit,
+//                Sort.by("createdAt").descending()
+                Sort.by("id").ascending()
+        );
+        Page<OrderResponse> orderPage = orderService
+                .getOrdersByKeyword(keyword, pageRequest).map(OrderResponse::fromOrder);
+
+        // retrieve total page
+        int totalPages = orderPage.getTotalPages();
+        List<OrderResponse> orders = orderPage.getContent();
+
+        return ResponseEntity.ok(OrderListResponse.builder()
+                .orders(orders)
+                .totalPages(totalPages)
+                .build());
     }
 }
