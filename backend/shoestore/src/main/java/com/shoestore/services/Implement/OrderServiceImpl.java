@@ -94,14 +94,17 @@ public class OrderServiceImpl implements OrderService {
     @Override
     @Transactional
     public Order updateOrder(Long id, OrderDTO orderDTO) throws DataNotFoundException {
-        Order order = getOrder(id);
-        User user = userRepository.findById(order.getUser().getId()).get();
-
-        // Create mapping from orderDTO to order
+        Order order = orderRepository.findById(id).orElseThrow(() ->
+                new DataNotFoundException("Cannot find order with id: " + id));
+        User existingUser = userRepository.findById(
+                orderDTO.getUserId()).orElseThrow(() ->
+                new DataNotFoundException("Cannot find user with id: " + orderDTO.getUserId()));
+        // Tạo một luồng bảng ánh xạ riêng để kiểm soát việc ánh xạ
         modelMapper.typeMap(OrderDTO.class, Order.class)
                 .addMappings(mapper -> mapper.skip(Order::setId));
+        // Cập nhật các trường của đơn hàng từ orderDTO
         modelMapper.map(orderDTO, order);
-        order.setUser(user);
+        order.setUser(existingUser);
         return orderRepository.save(order);
     }
 
