@@ -40,6 +40,8 @@ export class HeaderComponent implements OnInit{
       this.userService.removeUserFromLocalStorage();
       this.tokenService.removeToken();
       this.userResponse = this.userService.getUserResponseFromLocalStorage();    
+    } else if (index === 3){
+      this.router.navigate(['/admin']);
     }
     this.isPopoverOpen = false; // Close the popover after clicking an item    
   }
