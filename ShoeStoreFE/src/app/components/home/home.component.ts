@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
   categories: Category[] = []; // Dữ liệu động từ categoryService
   selectedCategoryId: number  = 0; // Giá trị category được chọn
-  currentPage: number = 0;
+  currentPage: number = 1;
   itemsPerPage: number = 12;
   pages: number[] = [];
   totalPages:number = 0;
