@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cddbe589-53c1-40d0-949b-9de397f350fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/configuration/MapperConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/services/Implement/OrderDetailServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/services/Implement/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/services/OrderDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/services/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/controllers/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/controllers/OrderDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/dtos/OrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/dtos/OrderDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/dtos/OrderDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/dtos/OrderDetailDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/repositories/OrderDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/shoestore/src/main/java/com/shoestore/repositories/OrderDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/configuration/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/services/Implement/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/services/Implement/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShoeStoreFE/src/app/components/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreFE/src/app/components/home/home.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShoeStoreFE/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreFE/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +29,49 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ShoeStoreApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Website/Shoe-Store",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Website\Shoe-Store" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="Application" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ShoeStoreApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shoestore.ShoeStoreApplication" />
+      <module name="shoestore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shoestore.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ShoeStoreApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -49,5 +82,29 @@
       <updated>1713315674447</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/configuration/WebSecurityConfig.java</url>
+          <line>40</line>
+          <properties class="com.shoestore.configuration.WebSecurityConfig" method="securityFilterChain">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/controllers/ProductController.java</url>
+          <line>115</line>
+          <properties class="com.shoestore.controllers.ProductController" method="viewImage">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
