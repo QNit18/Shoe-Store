@@ -1,2 +1,3 @@
 ../uploads
-/redis-data
+../redis-data
+../src

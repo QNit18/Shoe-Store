@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cddbe589-53c1-40d0-949b-9de397f350fb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/configuration/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/services/Implement/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreBE/shoestore/src/main/java/com/shoestore/services/Implement/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShoeStoreFE/src/app/components/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreFE/src/app/components/home/home.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShoeStoreFE/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ShoeStoreFE/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="cddbe589-53c1-40d0-949b-9de397f350fb" name="Changes" comment="Update code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +17,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2fCqzrfCtUOdmbEyWUTrJ6GvCMi" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,7 +78,28 @@
       <option name="presentableId" value="Default" />
       <updated>1713315674447</updated>
     </task>
+    <task id="LOCAL-00001" summary="Update code">
+      <option name="closed" value="true" />
+      <created>1722242304827</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722242304827</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update code">
+      <option name="closed" value="true" />
+      <created>1722242480877</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722242480877</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
